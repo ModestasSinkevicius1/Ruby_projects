@@ -1,6 +1,14 @@
 def trikampis_egzistuoja(a, b, c)
-  return false unless a + b > c && b + c > a && c + a > b
-  true
+  if type_a_float(a, b, c)
+    return false unless a + b > c && b + c > a && c + a > b
+    true
+  else
+    false
+  end
+end
+
+def type_a_float(a, b, c)
+  (a.is_a? Float) && (b.is_a? Float) && (c.is_a? Float)
 end
 
 def trikampio_tipas(a, b, c)
@@ -19,7 +27,7 @@ def trikampio_plotas(a, b, c)
   cal1 = (pus - a) * (pus - b) * (pus - c)
   cal2 = pus * cal1
   s = Math.sqrt(cal2)
-  s
+  (s * 100).round / 100.0
 end
 
 puts 'Iveskite trikampio a,b ir c krastiniu ilgius'

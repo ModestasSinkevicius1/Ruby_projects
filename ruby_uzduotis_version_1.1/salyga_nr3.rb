@@ -1,6 +1,10 @@
 def elektros_saskaita(kiekis)
-  k_w = elektros_saskaita_nustatymas(kiekis)
-  k_w
+  k_w = if kiekis.is_a? Float
+          elektros_saskaita_nustatymas(kiekis)
+        else
+          0.0
+        end
+  (k_w * 100).round / 100.0
 end
 
 def elektros_saskaita_nustatymas(kiekis, stop = true, up = 1.0, k_w = 0.0)
